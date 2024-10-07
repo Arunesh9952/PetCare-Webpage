@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>login Form</title>
+    <link rel="stylesheet" href="sign1.css">
+</head>
+<body>
+  <div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+			<div class="signup">
+				<form>
+					<label for="chk" aria-hidden="true">Sign up</label>
+					<input type="text" name="txt" placeholder="User name" required="">
+					<input type="email" name="email" placeholder="Email" id="email" required="">
+          <!-- <input type="number" name="broj" placeholder="BrojTelefona" required=""> -->
+					<input type="password" name="pswd" placeholder="Password" id="password" required="">
+					<button onclick="validateForm()">Sign up</button>
+				</form>
+			</div>
+
+			<div class="login">
+				<form>
+					<label for="chk" aria-hidden="true">Login</label>
+          <input type="text" name="txt" placeholder="User name" required="">
+					<input type="email" name="email" placeholder="Email" required="">
+					<input type="password" name="pswd" placeholder="Password" required="">
+					<button onclick="validateForm()">Login</button>
+				</form>
+			</div>
+	</div>
+  <script>
+    function validateForm() {
+            const name=document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const names=/^[a-zA-Z]+$/;
+            if(!names.test(name)){
+              alert("Please enter the name");
+            }
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+            
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            }
+            alert("Login successful!");
+            window.open("onee.html");
+            return false; 
+        }
+  </script>
+</body>
+</html>
